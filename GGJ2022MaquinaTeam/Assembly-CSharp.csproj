@@ -53,8 +53,15 @@
     <UnityVersion>2020.3.26f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\Script\CharacterController2D.cs" />
-    <Compile Include="Assets\Script\CharacterMovement.cs" />
+    <Compile Include="Assets\Script\Character\CharacterMovement.cs" />
+    <Compile Include="Assets\Script\Character\CharacterController2D.cs" />
+    <Compile Include="Assets\Script\WeaponsControllolers\FirePointController.cs" />
+    <Compile Include="Assets\Script\WeaponsControllolers\WeaponDefaultController.cs" />
+    <Compile Include="Assets\Script\Interfaces\IWeaponController.cs" />
+    <Compile Include="Assets\Script\WeaponsControllolers\PistolController.cs" />
+    <Compile Include="Assets\Script\WeaponsControllolers\BulletController.cs" />
+    <Compile Include="Assets\Script\Utils\Enumerators.cs" />
+    <Compile Include="Assets\Script\Character\InventaryController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

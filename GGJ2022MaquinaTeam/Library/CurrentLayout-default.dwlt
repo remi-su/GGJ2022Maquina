@@ -145,10 +145,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 987
-  m_MinSize: {x: 781, y: 492}
-  m_MaxSize: {x: 16006, y: 14042}
+  m_MinSize: {x: 781, y: 342}
+  m_MaxSize: {x: 16006, y: 8042}
   vertical: 0
-  controlID: 54
+  controlID: 105
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -170,10 +170,10 @@ MonoBehaviour:
     y: 0
     width: 1496
     height: 987
-  m_MinSize: {x: 505, y: 492}
-  m_MaxSize: {x: 12005, y: 14042}
+  m_MinSize: {x: 505, y: 342}
+  m_MaxSize: {x: 12005, y: 8042}
   vertical: 1
-  controlID: 128
+  controlID: 43
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -199,7 +199,7 @@ MonoBehaviour:
   m_MinSize: {x: 505, y: 221}
   m_MaxSize: {x: 12005, y: 4021}
   vertical: 0
-  controlID: 129
+  controlID: 44
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ProjectBrowser
+  m_Name: ConsoleWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -273,15 +273,15 @@ MonoBehaviour:
     y: 560
     width: 1496
     height: 427
-  m_MinSize: {x: 231, y: 271}
-  m_MaxSize: {x: 10001, y: 10021}
-  m_ActualView: {fileID: 18}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 18}
   - {fileID: 19}
   - {fileID: 20}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -452,9 +452,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: c2faffff
-      m_LastClickedID: -1342
-      m_ExpandedIDs: 72f5ffffc2faffff64fbffff
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: d4f9ffff44faffff64fbffffd8420000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -514,9 +514,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -12.801467, y: 3.242628, z: -6.832006}
+    m_Target: {x: 0.079102874, y: 0.10225737, z: -0.042004943}
     speed: 2
-    m_Value: {x: -12.801467, y: 3.242628, z: -6.832006}
+    m_Value: {x: 0.079102874, y: 0.10225737, z: -0.042004943}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -567,9 +567,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 39.84777
+    m_Target: 4.614143
     speed: 2
-    m_Value: 39.84777
+    m_Value: 4.614143
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -587,7 +587,7 @@ MonoBehaviour:
     m_FarClip: 10000
     m_DynamicClip: 1
     m_OcclusionCulling: 0
-  m_LastSceneViewRotation: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
+  m_LastSceneViewRotation: {x: -0.094562896, y: 0.046868432, z: -0.004456866, w: -0.99440694}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
@@ -657,22 +657,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Material
+    - Assets/Script/Character
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/Material
+  - Assets/Script/Character
   m_LastFoldersGridSize: 96
   m_LastProjectPath: C:\Users\PRIDE SPONGE\Documents\Proyectos\GGJ2022Maquina\GGJ2022MaquinaTeam
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 34560000
-    m_LastClickedID: 22068
-    m_ExpandedIDs: 00000000f442000000ca9a3b
+    m_SelectedIDs: 16660000
+    m_LastClickedID: 26134
+    m_ExpandedIDs: 000000002e4300003643000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -700,7 +700,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000f4420000
+    m_ExpandedIDs: 000000002e430000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -808,7 +808,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -1342
+  m_LastSelectedObjectID: 17112
 --- !u!114 &21
 MonoBehaviour:
   m_ObjectHideFlags: 52
