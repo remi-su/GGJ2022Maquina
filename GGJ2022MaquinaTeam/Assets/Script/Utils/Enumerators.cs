@@ -1,4 +1,4 @@
 namespace Enumerator.GGJ
 {
-    public enum TypeBullets { Pistol }
+    public enum TypeBullets { Pistol, Shotgun }
 }

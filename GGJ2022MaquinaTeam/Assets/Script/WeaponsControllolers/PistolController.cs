@@ -7,11 +7,12 @@ using Enumerator.GGJ;
 public class PistolController : MonoBehaviour, IWeaponController
 {
     public GameObject bulletPrefab;
+    public Transform fireSpot; 
     public int sizeByMagazine = 30;
 
     int actualMagazine;
     
-    public void Shoot(Transform fireSpot)
+    public void Shoot()
     {
 
         if (Input.GetButtonDown("Fire1"))

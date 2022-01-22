@@ -6,7 +6,6 @@ using Assets.Script.Interfaces;
 public class WeaponDefaultController : MonoBehaviour
 {
 
-    public Transform fireSpot;
     public GameObject arsenal;
     // Start is called before the first frame update
     void Start()
@@ -22,7 +21,7 @@ public class WeaponDefaultController : MonoBehaviour
 
             if (arsenal.transform.GetChild(0).GetComponent<IWeaponController>() != null)
             {
-                arsenal.transform.GetChild(0).GetComponent<IWeaponController>().Shoot(fireSpot);
+                arsenal.transform.GetChild(0).GetComponent<IWeaponController>().Shoot();
             }
             
 
