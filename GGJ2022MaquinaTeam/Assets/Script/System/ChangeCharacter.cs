@@ -30,6 +30,18 @@ public class ChangeCharacter : MonoBehaviour
     {
         Vector3 positionPlayer;
 
+        GameObject gameManager = GameObject.FindGameObjectWithTag("GameManager");
+        bool isTimeStop = false;
+        if (gameManager.GetComponent<GameManager>())
+        {
+            isTimeStop = gameManager.GetComponent<GameManager>().GetStateTimeGame();
+        }
+
+        if (isTimeStop)
+        {
+            return;
+        }
+
         if (Input.GetButtonDown("ChangeWorld") && canChange)
         {
             if (isPlayerOneActive)

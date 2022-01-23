@@ -35,12 +35,22 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GameObject gameManager = GameObject.FindGameObjectWithTag("GameManager");
+        bool isTimeStop = false;
+        if (gameManager.GetComponent<GameManager>())
+        {
+            isTimeStop = gameManager.GetComponent<GameManager>().GetStateTimeGame();
+        }
+
+        if (isTimeStop)
+        {
+            return;
+        }
 
         if (!isDashing)
         {
             horizontalMovement = Input.GetAxis("Horizontal") * speed;
         }
-        
 
         if (Input.GetButtonDown("Jump"))
         {

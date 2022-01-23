@@ -190,7 +190,7 @@ public class BossController : MonoBehaviour
                 canChangeSpot = true;
                 break;
             case 5:
-                Debug.Log("Attack with two lasers");
+                Debug.Log("Spawn Enemy");
                 canChangeSpot = true;
                 break;
             case 6:
