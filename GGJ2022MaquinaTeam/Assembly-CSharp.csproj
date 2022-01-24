@@ -56,9 +56,13 @@
     <Compile Include="Assets\Script\System\ChangeCharacter.cs" />
     <Compile Include="Assets\Script\Character\InventaryController.cs" />
     <Compile Include="Assets\Script\WeaponsControllolers\WeaponDefaultController.cs" />
+    <Compile Include="Assets\Script\NPCController\NPCController.cs" />
     <Compile Include="Assets\Script\EnemysController\LaserDualController.cs" />
     <Compile Include="Assets\Script\System\EventExecuter.cs" />
+    <Compile Include="Assets\Script\EnemysController\Tentacle.cs" />
     <Compile Include="Assets\Script\Character\CharacterController2D.cs" />
+    <Compile Include="Assets\Script\Model\NPCProfile.cs" />
+    <Compile Include="Assets\Script\EnemysController\TentacleEyeController.cs" />
     <Compile Include="Assets\Script\WeaponsControllolers\BulletController.cs" />
     <Compile Include="Assets\Script\WeaponsControllolers\ShotgunController.cs" />
     <Compile Include="Assets\Script\EnemysController\BigLaserController.cs" />
@@ -73,12 +77,13 @@
     <Compile Include="Assets\Script\WeaponsControllolers\PistolController.cs" />
     <Compile Include="Assets\Script\System\EventController.cs" />
     <Compile Include="Assets\Script\System\DialogSystem.cs" />
+    <Compile Include="Assets\Script\EnemysController\EnemyStatsController.cs" />
     <Compile Include="Assets\Script\WeaponsControllolers\FirePointController.cs" />
     <Compile Include="Assets\Script\Utils\Enumerators.cs" />
+    <Compile Include="Assets\Script\WeaponsControllolers\MacheteController.cs" />
     <Compile Include="Assets\Script\Interfaces\IEventExecuter.cs" />
     <Compile Include="Assets\Script\System\GameManager.cs" />
-    <Compile Include="Assets\Script\NPCController\NPCController.cs" />
-    <Compile Include="Assets\Script\Model\NPCProfile.cs" />
+    <Compile Include="Assets\Script\EnemysController\EnemyIA.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\ExternalAssets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -328,6 +333,9 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Pathfinding.Ionic.Zip.Reduced">
+      <HintPath>Assets\ExternalAssets\AstarPathfindingProject\Plugins\DotNetZip\Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.26f1\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>
@@ -796,6 +804,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="AstarPathfindingProject.csproj">
+      <Project>{DD0AD738-AA25-55AB-99DE-7098CFEC15C7}</Project>
+      <Name>AstarPathfindingProject</Name>
+    </ProjectReference>
+    <ProjectReference Include="PackageToolsEditor.csproj">
+      <Project>{0A1FE805-5BA7-86FB-C637-15982EB19891}</Project>
+      <Name>PackageToolsEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="AstarPathfindingProjectEditor.csproj">
+      <Project>{D7544167-8E82-6956-DA8F-BC0C43F64C28}</Project>
+      <Name>AstarPathfindingProjectEditor</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

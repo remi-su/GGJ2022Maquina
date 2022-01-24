@@ -12,6 +12,7 @@ public class ShotgunController : MonoBehaviour, IWeaponController
     public Transform spot_01;
     public Transform spot_02;
     public Transform spot_03;
+    public bool statusLocked = false;
 
     int actualMagazine;
 
@@ -40,5 +41,9 @@ public class ShotgunController : MonoBehaviour, IWeaponController
         {
             actualMagazine += player.GetComponent<InventaryController>().takeMunition(TypeBullets.Shotgun, (sizeByMagazine - actualMagazine));
         }
+    }
+    public bool getStatusLocked()
+    {
+        return statusLocked;
     }
 }

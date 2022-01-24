@@ -137,3 +137,6 @@ MonoBehaviour:
   speed: 50
   lifeTime: 2
   damage: 10
+  objectsToEvade:
+  - Player
+  - Bullet

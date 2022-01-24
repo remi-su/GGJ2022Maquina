@@ -8,5 +8,7 @@ namespace Assets.Script.Interfaces
 
         public void Shoot();
         public void Reload();
+
+        public bool getStatusLocked();
     }
 }

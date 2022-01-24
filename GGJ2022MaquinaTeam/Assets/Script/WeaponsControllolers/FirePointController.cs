@@ -64,7 +64,6 @@ public class FirePointController : MonoBehaviour
         
 
         firePoint.transform.localPosition = new Vector3(lastHorizontalAxis, lastVerticalAxis, 0);
-        //firePoint.transform.eulerAngles = new Vector3(0,0,gradeToRotate);
         firePoint.transform.localRotation = Quaternion.Euler(0, 0, gradeToRotate);
 
     }

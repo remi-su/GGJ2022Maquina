@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class BulletController : MonoBehaviour
 {
@@ -8,6 +7,7 @@ public class BulletController : MonoBehaviour
     public float speed;
     public float lifeTime;
     public float damage;
+    public string[] objectsToEvade;
     Rigidbody2D rb;
 
     // Start is called before the first frame update
@@ -31,8 +31,12 @@ public class BulletController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag != "Player" && collision.gameObject.tag != "Bullet")
+        if (!objectsToEvade.Contains(collision.gameObject.tag))
         {
+            if (collision.gameObject.GetComponent<EnemyStatsController>())
+            {
+                collision.gameObject.GetComponent<EnemyStatsController>().makeDamage(damage);
+            }
             Destroy(gameObject);
         }
         

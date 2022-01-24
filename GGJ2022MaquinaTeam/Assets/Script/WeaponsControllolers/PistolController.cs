@@ -9,6 +9,7 @@ public class PistolController : MonoBehaviour, IWeaponController
     public GameObject bulletPrefab;
     public Transform fireSpot; 
     public int sizeByMagazine = 30;
+    public bool statusLocked = false;
 
     int actualMagazine;
     
@@ -35,5 +36,10 @@ public class PistolController : MonoBehaviour, IWeaponController
         {
             actualMagazine += player.GetComponent<InventaryController>().takeMunition(TypeBullets.Pistol,(sizeByMagazine - actualMagazine));
         }
+    }
+
+    public bool getStatusLocked()
+    {
+        return statusLocked;
     }
 }
