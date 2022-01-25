@@ -27,15 +27,6 @@ public class WeaponDefaultController : MonoBehaviour
             {
                 arsenal.transform.GetChild(weaponActivate).GetComponent<IWeaponController>().Shoot();
             }
-            
-
-            if (Input.GetButtonDown("Reload"))
-            {
-                if (arsenal.transform.GetChild(weaponActivate).GetComponent<IWeaponController>() != null)
-                {
-                    arsenal.transform.GetChild(weaponActivate).GetComponent<IWeaponController>().Reload();
-                }
-            }
         }
 
         if (Input.GetButtonDown("NextWeapon"))
@@ -109,5 +100,11 @@ public class WeaponDefaultController : MonoBehaviour
         }
 
         return determinarAnteriorArmaLibre(weaponActivate);
+    }
+
+    public void SetKniveDefault()
+    {
+        changeWeapon(0);
+        this.weaponActivate = 0;
     }
 }

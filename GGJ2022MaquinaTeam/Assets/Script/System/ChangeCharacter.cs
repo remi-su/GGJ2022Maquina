@@ -13,7 +13,6 @@ public class ChangeCharacter : MonoBehaviour
     public float timeToChange;
     public string tagNextPlayer;
 
-
     float timeToChangeTotal;
     bool canChange;
     bool isPlayerOneActive;
@@ -44,7 +43,6 @@ public class ChangeCharacter : MonoBehaviour
         {
             return;
         }
-
 
         if (Input.GetButtonDown("ChangeWorld") && canChange)
         {

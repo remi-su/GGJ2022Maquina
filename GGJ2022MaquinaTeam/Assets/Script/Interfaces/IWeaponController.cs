@@ -7,8 +7,10 @@ namespace Assets.Script.Interfaces
     {
 
         public void Shoot();
-        public void Reload();
+        public void CureWeapon(float amontHeal);
 
         public bool getStatusLocked();
+
+        public void TakeNewInstance();
     }
 }

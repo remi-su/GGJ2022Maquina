@@ -1,41 +1,54 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using Assets.Script.Interfaces;
-using Enumerator.GGJ;
 
 public class PistolController : MonoBehaviour, IWeaponController
 {
     public GameObject bulletPrefab;
     public Transform fireSpot; 
-    public int sizeByMagazine = 30;
+    public float lifeWeapon;
+    public float initialLifeWeapon;
+    public float damagePerBullet;
     public bool statusLocked = false;
 
-    int actualMagazine;
-    
+    private void Awake()
+    {
+        lifeWeapon = initialLifeWeapon;
+    }
+
     public void Shoot()
     {
 
         if (Input.GetButtonDown("Fire1"))
         {
             //Shoot Logic
-            if (actualMagazine > 0)
+            if (lifeWeapon > 0)
             {
                 Instantiate(bulletPrefab, fireSpot.position, fireSpot.rotation);
-                actualMagazine--;
+                lifeWeapon -= damagePerBullet;
+
+                if (lifeWeapon <= 0)
+                {
+                    statusLocked = false;
+                    transform.parent.gameObject.GetComponent<WeaponDefaultController>().SetKniveDefault();
+                }
             }
         }
         
     }
 
-    public void Reload()
+    public void CureWeapon(float amontHeal)
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-
-        if (player.GetComponent<InventaryController>())
+        if (!statusLocked)
         {
-            actualMagazine += player.GetComponent<InventaryController>().takeMunition(TypeBullets.Pistol,(sizeByMagazine - actualMagazine));
+            lifeWeapon += amontHeal;
         }
+    }
+
+    public void TakeNewInstance()
+    {
+        statusLocked = true;
+        lifeWeapon = initialLifeWeapon;
     }
 
     public bool getStatusLocked()

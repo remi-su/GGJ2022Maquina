@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Assets.Script.Interfaces;
 
@@ -35,13 +33,19 @@ public class MacheteController : MonoBehaviour, IWeaponController
         }
     }
 
-    public void Reload()
+    public void CureWeapon(float amontHeal)
     {
-        
+
+    }
+
+    public void TakeNewInstance()
+    {
+
     }
 
     public bool getStatusLocked()
     {
         return statusLocked;
     }
+
 }
