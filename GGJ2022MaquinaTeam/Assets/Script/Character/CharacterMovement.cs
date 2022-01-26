@@ -6,8 +6,10 @@ public class CharacterMovement : MonoBehaviour
 {
     
     public float speed = 40; // Velocidad del personaje.
+    public float distanceBetweenImages;
+    private float lastImageXPos;
     private float timeNewDash = 0.5f; // Tiempo en el cual se puede realizar un nuevo dash
-    private float dashTime = 0.1f; //Tiempo de duración del dash
+    private float dashTime = 0.2f; //Tiempo de duración del dash
     private float dashSpeed = 40; // Velocidad del Dash.
     CharacterController2D controller;
 
@@ -86,6 +88,8 @@ public class CharacterMovement : MonoBehaviour
                 {
                     isDashing = true;
                     canDash = false;
+                    PlayerImageAfterPool.Instance.GetFromPool();
+                    lastImageXPos = transform.position.x;
                 }
 
             }
@@ -114,6 +118,12 @@ public class CharacterMovement : MonoBehaviour
                 if (dashDirection != 0)
                 {
                     rb.velocity = Vector2.right * dashSpeed * dashDirection;
+
+                    if (Mathf.Abs(transform.position.x - lastImageXPos) > distanceBetweenImages)
+                    {
+                        PlayerImageAfterPool.Instance.GetFromPool();
+                        lastImageXPos = transform.position.x;
+                    }
                 }
             }
             else

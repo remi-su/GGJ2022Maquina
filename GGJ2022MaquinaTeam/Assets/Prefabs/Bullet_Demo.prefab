@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7599518569833644254}
   - component: {fileID: 7599518569833644253}
   - component: {fileID: 2458102866419429125}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Bullet_Demo
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -140,3 +140,4 @@ MonoBehaviour:
   objectsToEvade:
   - Player
   - Bullet
+  - WeaponPlayer

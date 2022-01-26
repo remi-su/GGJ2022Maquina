@@ -51,6 +51,17 @@ public class PistolController : MonoBehaviour, IWeaponController
         lifeWeapon = initialLifeWeapon;
     }
 
+    public void TakeDamage(float damage)
+    {
+        lifeWeapon -= damage;
+        Debug.Log("Taking Damage Pistol");
+        if (lifeWeapon <= 0)
+        {
+            statusLocked = false;
+            transform.parent.gameObject.GetComponent<WeaponDefaultController>().SetKniveDefault();
+        }
+    }
+
     public bool getStatusLocked()
     {
         return statusLocked;

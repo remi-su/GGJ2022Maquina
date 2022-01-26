@@ -12,5 +12,7 @@ namespace Assets.Script.Interfaces
         public bool getStatusLocked();
 
         public void TakeNewInstance();
+
+        public void TakeDamage(float damage);
     }
 }

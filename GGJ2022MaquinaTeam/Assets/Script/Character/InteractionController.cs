@@ -5,6 +5,7 @@ using UnityEngine;
 public class InteractionController : MonoBehaviour
 {
     public GameObject spotToInteract;
+    public LayerMask layerMask;
     private GameObject objectToInteract;
     private GameObject characterToDialogue;
     private bool isCarryObject;
@@ -53,9 +54,9 @@ public class InteractionController : MonoBehaviour
             valorHorizontalAxis = lastValorAxis;
         }
 
-        RaycastHit2D _hit = Physics2D.Raycast(spotToInteract.transform.position, valorHorizontalAxis * Vector2.left, 1.2f);
+        RaycastHit2D _hit = Physics2D.Raycast(spotToInteract.transform.position, valorHorizontalAxis * Vector2.left, 1.2f, layerMask);
 
-        if (Physics2D.Raycast(spotToInteract.transform.position, valorHorizontalAxis * Vector2.left, 1.2f))
+        if (Physics2D.Raycast(spotToInteract.transform.position, valorHorizontalAxis * Vector2.left, 1.2f, layerMask))
         {
             switch (_hit.collider.gameObject.tag)
             {

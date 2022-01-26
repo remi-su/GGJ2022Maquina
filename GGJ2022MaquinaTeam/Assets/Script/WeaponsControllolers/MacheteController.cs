@@ -48,4 +48,9 @@ public class MacheteController : MonoBehaviour, IWeaponController
         return statusLocked;
     }
 
+    public void TakeDamage(float damage)
+    {
+
+    }
+
 }
