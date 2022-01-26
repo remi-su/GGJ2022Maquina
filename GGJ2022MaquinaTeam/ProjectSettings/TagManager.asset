@@ -9,6 +9,8 @@ TagManager:
   - NPCCharacter
   - Enemy
   - Player2
+  - WeaponPlayer
+  - CharacterGFX
   layers:
   - Default
   - TransparentFX
@@ -20,8 +22,8 @@ TagManager:
   - NPC
   - Enemy
   - Monsters
-  - 
-  - 
+  - WeaponPlayer
+  - Bullet
   - 
   - 
   - 
@@ -45,4 +47,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Character
+    uniqueID: 3163988051
+    locked: 0
+  - name: Bullet
+    uniqueID: 3165828063
     locked: 0
