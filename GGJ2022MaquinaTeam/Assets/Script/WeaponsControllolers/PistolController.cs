@@ -8,18 +8,32 @@ public class PistolController : MonoBehaviour, IWeaponController
     public Transform fireSpot; 
     public float lifeWeapon;
     public float initialLifeWeapon;
+    private float timeBtwAttack;
+    public float startTimeBtwAttack;
     public float damagePerBullet;
     public bool statusLocked = false;
+    private bool canShoot = true;
 
     private void Awake()
     {
         lifeWeapon = initialLifeWeapon;
+        timeBtwAttack = startTimeBtwAttack;
     }
 
     public void Shoot()
     {
 
-        if (Input.GetButtonDown("Fire1"))
+        if (timeBtwAttack >= 0 && !canShoot)
+        {
+            timeBtwAttack -= Time.deltaTime;
+        }
+        else
+        {
+            canShoot = true;
+            timeBtwAttack = startTimeBtwAttack;
+        }
+
+        if (Input.GetButton("Fire1") && canShoot)
         {
             //Shoot Logic
             if (lifeWeapon > 0)
@@ -32,9 +46,11 @@ public class PistolController : MonoBehaviour, IWeaponController
                     statusLocked = false;
                     transform.parent.gameObject.GetComponent<WeaponDefaultController>().SetKniveDefault();
                 }
+
+                canShoot = false;
             }
         }
-        
+
     }
 
     public void CureWeapon(float amontHeal)

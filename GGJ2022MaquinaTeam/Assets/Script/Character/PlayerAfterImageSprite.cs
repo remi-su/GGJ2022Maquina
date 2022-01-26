@@ -25,7 +25,8 @@ public class PlayerAfterImageSprite : MonoBehaviour
     {
         SRBody = transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
         SRLegs = transform.GetChild(1).GetChild(0).GetComponent<SpriteRenderer>();
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        string tagName = GameObject.FindGameObjectWithTag("GameManager").GetComponent<ChangeCharacter>().tagNextPlayer;
+        player = GameObject.FindGameObjectWithTag(tagName).transform;
         playerGFX = GameObject.FindGameObjectWithTag("CharacterGFX").transform;
         playerBodySR = playerGFX.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
         playerLegsSR = playerGFX.GetChild(1).GetChild(0).GetComponent<SpriteRenderer>();

@@ -9,8 +9,8 @@ public class CharacterMovement : MonoBehaviour
     public float distanceBetweenImages;
     private float lastImageXPos;
     private float timeNewDash = 0.5f; // Tiempo en el cual se puede realizar un nuevo dash
-    private float dashTime = 0.2f; //Tiempo de duración del dash
-    private float dashSpeed = 40; // Velocidad del Dash.
+    private float dashTime = 0.1f; //Tiempo de duración del dash
+    private float dashSpeed = 30; // Velocidad del Dash.
     CharacterController2D controller;
 
     bool isJumping = false; //Bandera que indica si el jugador esta saltando.

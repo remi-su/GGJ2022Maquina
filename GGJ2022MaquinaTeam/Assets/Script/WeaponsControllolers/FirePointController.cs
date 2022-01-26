@@ -6,6 +6,8 @@ public class FirePointController : MonoBehaviour
 {
 
     public GameObject firePoint;
+    public float verticalCorrection = 0;
+    public float verticalCorrectionLookinUp = 0;
 
     float lastHorizontalAxis;
     float lastVerticalAxis;
@@ -25,7 +27,7 @@ public class FirePointController : MonoBehaviour
 
         if (verticalAxis > 0)
         {
-            lastVerticalAxis = 1;
+            lastVerticalAxis = 1 + verticalCorrectionLookinUp;
             if (horizontalAxis == 0)
             {
                 gradeToRotate = 90;
@@ -36,7 +38,7 @@ public class FirePointController : MonoBehaviour
         }
         else if (verticalAxis < 0)
         {
-            lastVerticalAxis = -1;
+            lastVerticalAxis = -1 + verticalCorrectionLookinUp;
 
             if (horizontalAxis == 0)
             {
@@ -63,7 +65,7 @@ public class FirePointController : MonoBehaviour
 
         
 
-        firePoint.transform.localPosition = new Vector3(lastHorizontalAxis, lastVerticalAxis == 0 ? 0.5f : lastVerticalAxis, 0);
+        firePoint.transform.localPosition = new Vector3(lastHorizontalAxis, lastVerticalAxis == 0 ? verticalCorrection : lastVerticalAxis, 0);
         firePoint.transform.localRotation = Quaternion.Euler(0, 0, gradeToRotate);
 
     }

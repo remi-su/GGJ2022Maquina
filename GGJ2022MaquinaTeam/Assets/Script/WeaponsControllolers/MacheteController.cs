@@ -10,26 +10,31 @@ public class MacheteController : MonoBehaviour, IWeaponController
     public Transform attackPos;
     public LayerMask whatIsEnemies;
     public float attackRange;
+    private bool canShoot = true;
 
 
     public void Shoot()
     {
-        if (timeBtwAttack <= 0)
-        {
-            if (Input.GetButtonDown("Fire1"))
-            {
-                Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
-                for (int i = 0; i < enemiesToDamage.Length; i++)
-                {
-                    if (enemiesToDamage[i].GetComponent<EnemyStatsController>())
-                    {
-                        enemiesToDamage[i].GetComponent<EnemyStatsController>().makeDamage(damage);
-                    }
-                }
-            }
-        } else
+        if (timeBtwAttack >= 0 && !canShoot)
         {
             timeBtwAttack -= Time.deltaTime;
+        } else
+        {
+            canShoot = true;
+            timeBtwAttack = startTimeBtwAttack;
+        }
+
+        if (Input.GetButtonDown("Fire1") && canShoot)
+        {
+            Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
+            for (int i = 0; i < enemiesToDamage.Length; i++)
+            {
+                if (enemiesToDamage[i].GetComponent<EnemyStatsController>())
+                {
+                    enemiesToDamage[i].GetComponent<EnemyStatsController>().makeDamage(damage);
+                }
+            }
+            canShoot = false;
         }
     }
 

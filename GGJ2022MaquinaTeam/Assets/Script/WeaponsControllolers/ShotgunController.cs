@@ -7,21 +7,34 @@ public class ShotgunController : MonoBehaviour, IWeaponController
     public float lifeWeapon;
     public float initialLifeWeapon;
     public float damagePerBullet;
+    private float timeBtwAttack;
+    public float startTimeBtwAttack;
     public Transform fireSpot;
     public Transform spot_01;
     public Transform spot_02;
     public Transform spot_03;
     public bool statusLocked = false;
+    private bool canShoot = true;
 
     private void Awake()
     {
         lifeWeapon = initialLifeWeapon;
+        timeBtwAttack = startTimeBtwAttack;
     }
 
     public void Shoot()
     {
+        if (timeBtwAttack >= 0 && !canShoot)
+        {
+            timeBtwAttack -= Time.deltaTime;
+        }
+        else
+        {
+            canShoot = true;
+            timeBtwAttack = startTimeBtwAttack;
+        }
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && canShoot)
         {
             //Shoot Logic
             if (lifeWeapon > 0)
@@ -36,9 +49,10 @@ public class ShotgunController : MonoBehaviour, IWeaponController
                     statusLocked = false;
                     transform.parent.gameObject.GetComponent<WeaponDefaultController>().SetKniveDefault();
                 }
-
+                canShoot = false;
             }
         }
+
 
     }
 
