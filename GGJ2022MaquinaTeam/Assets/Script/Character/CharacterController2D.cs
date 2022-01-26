@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class CharacterController2D : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class CharacterController2D : MonoBehaviour
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
 	private bool secondJump = false;
+	[SerializeField] private float life = 100;
+	[SerializeField] private Image barra_de_vida;
+	private float vida_maxima = 100;
 
 	[Header("Events")]
 	[Space]
@@ -58,6 +62,15 @@ public class CharacterController2D : MonoBehaviour
 				if (!wasGrounded)
 					OnLandEvent.Invoke();
 			}
+		}
+	}
+
+	private void Update()
+	{
+		barra_de_vida.fillAmount = life / vida_maxima;
+		if (life <= 0)
+		{
+			die();
 		}
 	}
 
@@ -146,5 +159,27 @@ public class CharacterController2D : MonoBehaviour
 		m_FacingRight = !m_FacingRight;
 
 		transform.Rotate(0,180,0);
+	}
+
+	public void takedamage(float damage)
+	{
+		life = life - damage;
+	}
+
+	private void die()
+	{
+		Destroy(gameObject);
+	}
+
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		if (collision.collider.CompareTag("bala_e"))
+		{
+			takedamage(5);
+		}
+		if (collision.collider.CompareTag("trampa"))
+		{
+			takedamage(10);
+		}
 	}
 }
