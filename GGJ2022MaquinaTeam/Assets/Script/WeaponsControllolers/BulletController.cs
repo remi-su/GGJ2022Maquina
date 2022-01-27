@@ -9,6 +9,8 @@ public class BulletController : MonoBehaviour
     public float lifeTime;
     public float damage;
     public string[] objectsToEvade;
+    public GameObject dieEffect;
+    public GameObject whomshoot;
     Rigidbody2D rb;
 
     // Start is called before the first frame update
@@ -37,11 +39,22 @@ public class BulletController : MonoBehaviour
             if (collision.gameObject.GetComponent<EnemyStatsController>())
             {
                 collision.gameObject.GetComponent<EnemyStatsController>().makeDamage(damage);
+                collision.gameObject.GetComponent<EnemyStatsController>().MakeAEnemy();
+            }
+
+            if (collision.gameObject.GetComponent<FlyEnemyIA>() && whomshoot != null)
+            {
+                collision.gameObject.GetComponent<FlyEnemyIA>().changeTargetByAttacking(whomshoot);
             }
 
             if (collision.gameObject.GetComponent<CharacterController2D>())
             {
                 collision.gameObject.GetComponent<CharacterController2D>().takedamage(damage);
+            }
+
+            if (collision.gameObject.GetComponent<MinionStatsController>())
+            {
+                collision.gameObject.GetComponent<MinionStatsController>().makeDamage(damage);
             }
 
             if (collision.gameObject.transform.parent != null)
@@ -52,6 +65,10 @@ public class BulletController : MonoBehaviour
                 }
             }
             
+            if (dieEffect != null)
+            {
+                Instantiate(dieEffect,transform.position, Quaternion.identity);
+            }
             Destroy(gameObject);
         }
         

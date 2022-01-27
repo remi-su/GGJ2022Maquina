@@ -46,7 +46,8 @@ public class TentacleEyeController : MonoBehaviour
                 } else
                 {
                     timebtwAttack = startTimebtwAttack;
-                    Instantiate(bullet, pointToShot.transform.position, pointToShot.transform.rotation);
+                    GameObject bulletInstance = Instantiate(bullet, pointToShot.transform.position, pointToShot.transform.rotation);
+                    bulletInstance.GetComponent<BulletController>().whomshoot = gameObject;
                 }
             }
             

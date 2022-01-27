@@ -43,8 +43,8 @@ public class SummonMinion : MonoBehaviour, IWeaponController
                 {
                     minionInstance.gameObject.SetActive(true);
                 }
+                minionInstance.transform.GetChild(1).GetComponent<MinionStatsController>().ResetStats();
                 minionInstance.position = fireSpot.position;
-
                 canSummon = false;
             }
         }

@@ -32,6 +32,7 @@ public class MacheteController : MonoBehaviour, IWeaponController
                 if (enemiesToDamage[i].GetComponent<EnemyStatsController>())
                 {
                     enemiesToDamage[i].GetComponent<EnemyStatsController>().makeDamage(damage);
+                    enemiesToDamage[i].GetComponent<EnemyStatsController>().MakeAEnemy();
                 }
             }
             canShoot = false;

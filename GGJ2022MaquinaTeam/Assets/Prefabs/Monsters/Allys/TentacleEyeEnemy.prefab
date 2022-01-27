@@ -756,6 +756,7 @@ GameObject:
   - component: {fileID: 7614709985914573045}
   - component: {fileID: 7614709985914573046}
   - component: {fileID: 7614709985914573047}
+  - component: {fileID: 3955187468900052178}
   m_Layer: 12
   m_Name: TentacleEye
   m_TagString: Untagged
@@ -893,6 +894,21 @@ MonoBehaviour:
   pointToShot: {fileID: 7614709986539438367}
   bullet: {fileID: 8032932557903446868, guid: ae45bd7d0c1233c4384cd44adf6fcf34, type: 3}
   startTimebtwAttack: 0.8
+--- !u!114 &3955187468900052178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7614709985914573576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0dbc909ef91e7a4ba423a7f7290ee6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 100
+  MAXHP: 100
+  gameObjectToDestroy: {fileID: 7614709985078960614}
 --- !u!1 &7614709985950783476
 GameObject:
   m_ObjectHideFlags: 0

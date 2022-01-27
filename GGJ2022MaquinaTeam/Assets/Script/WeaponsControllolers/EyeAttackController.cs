@@ -31,7 +31,8 @@ public class EyeAttackController : MonoBehaviour, IWeaponController
 
                 if (consumeMana())
                 {
-                    Instantiate(bulletPrefab, fireSpot.position, fireSpot.rotation);
+                    GameObject bulletInstance = Instantiate(bulletPrefab, fireSpot.position, fireSpot.rotation);
+                    bulletInstance.GetComponent<BulletController>().whomshoot = gameObject;
                 }
             }
         }

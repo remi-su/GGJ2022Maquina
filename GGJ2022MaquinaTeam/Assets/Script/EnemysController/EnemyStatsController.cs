@@ -1,18 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyStatsController : MonoBehaviour
 {
     public float HP;
-    public float speed;
+    public GameObject gameObjectToDestroy;
+    public GameObject bloodEffect;
+    public GameObject manchaSangre;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -24,11 +19,24 @@ public class EnemyStatsController : MonoBehaviour
 
     void die()
     {
-        Destroy(gameObject);
+        Instantiate(bloodEffect, transform.position, Quaternion.identity);
+        Instantiate(manchaSangre, transform.position, gameObject.transform.rotation);
+        FindObjectOfType<ShakeCamara>().CamShake();
+        Destroy(gameObjectToDestroy.gameObject);
     }
 
     public void makeDamage(float damage)
     {
         HP -= damage;
     }
+
+    public void MakeAEnemy()
+    {
+        if (gameObject.layer == 13)
+        {
+            gameObject.layer = 8;
+        }
+    }
+
+    
 }

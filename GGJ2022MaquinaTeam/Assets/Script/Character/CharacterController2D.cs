@@ -174,7 +174,13 @@ public class CharacterController2D : MonoBehaviour
 
 	public void takedamage(float damage)
 	{
-		life = life - damage;
+		bool isDashing = GetComponent<CharacterMovement>().GetIsDashing();
+
+		if (!isDashing)
+        {
+			life = life - damage;
+		}
+		
 	}
 
 	public bool ConsumirMana(float manaCost)

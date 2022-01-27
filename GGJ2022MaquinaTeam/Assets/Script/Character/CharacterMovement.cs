@@ -15,7 +15,7 @@ public class CharacterMovement : MonoBehaviour
 
     bool isJumping = false; //Bandera que indica si el jugador esta saltando.
     bool isCroaching = false; //Bandera que indica si el jugador se esta agachando.
-    bool isDashing = false; //  Bandera que indica si el jugador puede o esta dasheando.
+    [SerializeField] bool isDashing = false; //  Bandera que indica si el jugador puede o esta dasheando.
     bool canDash = true; // Bandera qye determina si el jugador puede dashear.
     float dashTimeReal = 1;
     float newDashReal = 1;
@@ -68,6 +68,7 @@ public class CharacterMovement : MonoBehaviour
         }
 
         dashAction();
+
     }
 
     private void FixedUpdate()
@@ -132,5 +133,10 @@ public class CharacterMovement : MonoBehaviour
                 isDashing = false;
             }
         }
+    }
+
+    public bool GetIsDashing()
+    {
+        return isDashing;
     }
 }
