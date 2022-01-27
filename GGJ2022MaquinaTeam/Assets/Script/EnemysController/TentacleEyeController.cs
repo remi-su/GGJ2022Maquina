@@ -34,7 +34,7 @@ public class TentacleEyeController : MonoBehaviour
     private void ShootingEnemys()
     {
         float distance = 0;
-        if (target.tag != "Player2")
+        if (target != null && target.tag != "Player2")
         {
             distance = Vector2.Distance(transform.position, target.transform.position);
 
@@ -47,7 +47,6 @@ public class TentacleEyeController : MonoBehaviour
                 {
                     timebtwAttack = startTimebtwAttack;
                     Instantiate(bullet, pointToShot.transform.position, pointToShot.transform.rotation);
-                    Debug.Log("shooting");
                 }
             }
             
@@ -96,7 +95,10 @@ public class TentacleEyeController : MonoBehaviour
     {
         if (objectWithDestinationSetter.GetComponent<AIDestinationSetter>())
         {
-            objectWithDestinationSetter.GetComponent<AIDestinationSetter>().target = target.transform;
+            if (target != null)
+            {
+                objectWithDestinationSetter.GetComponent<AIDestinationSetter>().target = target.transform;
+            }
         }
     }
 }

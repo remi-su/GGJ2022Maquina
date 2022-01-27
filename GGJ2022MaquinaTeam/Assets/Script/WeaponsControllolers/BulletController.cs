@@ -39,9 +39,13 @@ public class BulletController : MonoBehaviour
                 collision.gameObject.GetComponent<EnemyStatsController>().makeDamage(damage);
             }
 
+            if (collision.gameObject.GetComponent<CharacterController2D>())
+            {
+                collision.gameObject.GetComponent<CharacterController2D>().takedamage(damage);
+            }
+
             if (collision.gameObject.transform.parent != null)
             {
-                Debug.Log(collision.gameObject.name);
                 if (collision.gameObject.transform.parent.gameObject.GetComponent<IWeaponController>() != null)
                 {
                     collision.gameObject.transform.parent.gameObject.GetComponent<IWeaponController>().TakeDamage(damage);

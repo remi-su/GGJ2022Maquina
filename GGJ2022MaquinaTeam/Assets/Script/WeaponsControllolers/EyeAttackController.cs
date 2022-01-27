@@ -28,10 +28,21 @@ public class EyeAttackController : MonoBehaviour, IWeaponController
             } else
             {
                 timeFire = initialTimeFire;
-                Instantiate(bulletPrefab, fireSpot.position, fireSpot.rotation);
+
+                if (consumeMana())
+                {
+                    Instantiate(bulletPrefab, fireSpot.position, fireSpot.rotation);
+                }
             }
         }
 
+    }
+
+    private bool consumeMana()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player2");
+
+        return player.GetComponent<CharacterController2D>().ConsumirMana(manaCost);
     }
 
     public void CureWeapon(float amontHeal)
