@@ -13,7 +13,7 @@ public class rango_enemigo : MonoBehaviour
         {
             ani.SetBool("walk", false);
             ani.SetBool("run", false);
-            ani.SetBool("attack", false);
+            ani.SetBool("attack", true);
             enemigo.atacando = true;
             GetComponent<BoxCollider2D>().enabled = false;
 
