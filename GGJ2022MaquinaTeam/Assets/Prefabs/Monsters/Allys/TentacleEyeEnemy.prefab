@@ -1,5 +1,82 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4638930445927533277
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2660547616308804168}
+  - component: {fileID: 5946960617334625414}
+  - component: {fileID: 8101624565834173298}
+  m_Layer: 6
+  m_Name: JumpZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2660547616308804168
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4638930445927533277}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.20686, y: 0.20686, z: 0.20686}
+  m_Children: []
+  m_Father: {fileID: 7614709985078960613}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &5946960617334625414
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4638930445927533277}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 1
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.032923937, y: 1.0041938}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5.6094213, y: 0.96707153}
+  m_EdgeRadius: 0
+--- !u!251 &8101624565834173298
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4638930445927533277}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 8
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 100
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &7614709984869985957
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,7 +86,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7614709984869985956}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: TargetWiggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +119,7 @@ GameObject:
   - component: {fileID: 7614709985014596707}
   - component: {fileID: 7614709985014596705}
   - component: {fileID: 7614709985014596706}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Tentacle_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198,7 +275,7 @@ GameObject:
   - component: {fileID: 7614709985078960612}
   - component: {fileID: 7614709985078960610}
   - component: {fileID: 1495150358}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: TentacleEyeEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -216,6 +293,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 8.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 2660547616308804168}
   - {fileID: 7614709985914573043}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -329,7 +407,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7614709985131100140}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: TargetWiggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -360,7 +438,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7614709985206869385}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: TargetDir
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -390,7 +468,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7614709985311025731}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: TargetDir
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -420,7 +498,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7614709985455564683}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: TargetDir
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -450,7 +528,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7614709985582890978}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: TargetWiggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -483,7 +561,7 @@ GameObject:
   - component: {fileID: 7614709985672950267}
   - component: {fileID: 7614709985672950265}
   - component: {fileID: 7614709985672950266}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Tentacle_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -644,7 +722,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7614709985713584482}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: TargetDir
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -678,7 +756,8 @@ GameObject:
   - component: {fileID: 7614709985914573045}
   - component: {fileID: 7614709985914573046}
   - component: {fileID: 7614709985914573047}
-  m_Layer: 9
+  - component: {fileID: 3955187468900052178}
+  m_Layer: 12
   m_Name: TentacleEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -703,7 +782,7 @@ Transform:
   - {fileID: 7614709986140999227}
   - {fileID: 7614709986685548745}
   m_Father: {fileID: 7614709985078960613}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7614709985914573044
 SpriteRenderer:
@@ -815,6 +894,21 @@ MonoBehaviour:
   pointToShot: {fileID: 7614709986539438367}
   bullet: {fileID: 8032932557903446868, guid: ae45bd7d0c1233c4384cd44adf6fcf34, type: 3}
   startTimebtwAttack: 0.8
+--- !u!114 &3955187468900052178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7614709985914573576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0dbc909ef91e7a4ba423a7f7290ee6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 100
+  MAXHP: 100
+  gameObjectToDestroy: {fileID: 7614709985078960614}
 --- !u!1 &7614709985950783476
 GameObject:
   m_ObjectHideFlags: 0
@@ -826,7 +920,7 @@ GameObject:
   - component: {fileID: 7614709985950783475}
   - component: {fileID: 7614709985950783473}
   - component: {fileID: 7614709985950783474}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Tentacle_01 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -980,7 +1074,7 @@ GameObject:
   - component: {fileID: 7614709986140999227}
   - component: {fileID: 7614709986140999225}
   - component: {fileID: 7614709986140999226}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Tentacle_01 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1132,7 +1226,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7614709986242337197}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: TargetWiggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1163,7 +1257,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7614709986539438366}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: PointShot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1195,7 +1289,7 @@ GameObject:
   - component: {fileID: 7614709986685548745}
   - component: {fileID: 7614709986685548727}
   - component: {fileID: 7614709986685548744}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Tentacle_01 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1347,7 +1441,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7614709986797127535}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: TargetWiggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1378,7 +1472,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7614709986851222427}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: TargetDir
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -142,6 +142,8 @@ MonoBehaviour:
   - Bullet
   - Player
   - Player2
+  dieEffect: {fileID: 6456025022633278573, guid: 473d3dba81916844eb4681ca028be6c8, type: 3}
+  whomshoot: {fileID: 0}
 --- !u!95 &9002812322788033713
 Animator:
   serializedVersion: 3

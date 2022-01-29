@@ -23,6 +23,13 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private float life = 100;
 	[SerializeField] private Image barra_de_vida;
 	private float vida_maxima = 100;
+	[SerializeField] float mana = 100;
+	private float mana_maxima = 100;
+	[SerializeField]
+	private float initialTimeRecoveryMana;
+	private float timeRecoveryMana;
+	[SerializeField]
+	private float amountManaToRecover;
 
 	[Header("Events")]
 	[Space]
@@ -43,6 +50,8 @@ public class CharacterController2D : MonoBehaviour
 
 		if (OnCrouchEvent == null)
 			OnCrouchEvent = new BoolEvent();
+
+		timeRecoveryMana = initialTimeRecoveryMana;
 	}
 
 	private void FixedUpdate()
@@ -67,11 +76,13 @@ public class CharacterController2D : MonoBehaviour
 
 	private void Update()
 	{
-		barra_de_vida.fillAmount = life / vida_maxima;
+		// barra_de_vida.fillAmount = life / vida_maxima;
 		if (life <= 0)
 		{
 			die();
 		}
+
+		recoverManaByTime();
 	}
 
 
@@ -163,8 +174,46 @@ public class CharacterController2D : MonoBehaviour
 
 	public void takedamage(float damage)
 	{
-		life = life - damage;
+		bool isDashing = GetComponent<CharacterMovement>().GetIsDashing();
+
+		if (!isDashing)
+        {
+			life = life - damage;
+		}
+		
 	}
+
+	public bool ConsumirMana(float manaCost)
+    {
+		if (manaCost <= mana)
+        {
+			mana -= manaCost;
+			return true;
+        } else
+        {
+			return false;
+        }
+    }
+
+	private void recoverManaByTime()
+    {
+		if (timeRecoveryMana >= 0)
+        {
+			timeRecoveryMana -= Time.deltaTime;
+        } else
+        {
+			timeRecoveryMana = initialTimeRecoveryMana;
+
+			if ((mana + amountManaToRecover) <= mana_maxima )
+            {
+				mana += amountManaToRecover;
+			} else
+            {
+				mana = mana_maxima;
+            }
+			
+        }
+    }
 
 	private void die()
 	{

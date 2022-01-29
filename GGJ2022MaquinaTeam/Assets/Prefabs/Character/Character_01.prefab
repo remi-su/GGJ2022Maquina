@@ -63,6 +63,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 0}
+  verticalCorrection: 0.5
+  verticalCorrectionLookinUp: 0
 --- !u!1 &8912675397618482009
 GameObject:
   m_ObjectHideFlags: 0
@@ -76,10 +78,9 @@ GameObject:
   - component: {fileID: 8912675397618481986}
   - component: {fileID: 8912675397618481987}
   - component: {fileID: 8912675397618481999}
-  - component: {fileID: 8912675397618481988}
-  - component: {fileID: 8912675397618481989}
   - component: {fileID: 8912675397618481990}
   - component: {fileID: 8912675397618481985}
+  - component: {fileID: 1520177457}
   m_Layer: 3
   m_Name: Character_01
   m_TagString: Player
@@ -178,7 +179,12 @@ MonoBehaviour:
     m_Bits: 887
   m_GroundCheck: {fileID: 8912675397647431129}
   m_CeilingCheck: {fileID: 8912675398015612605}
-  m_CrouchDisableCollider: {fileID: 8912675397618481988}
+  m_CrouchDisableCollider: {fileID: 0}
+  life: 100
+  barra_de_vida: {fileID: 0}
+  mana: 0
+  initialTimeRecoveryMana: 0.5
+  amountManaToRecover: 1
   OnLandEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -197,7 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60b8034353f24f74d8222ca78b4ef2cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 60
+  speed: 40
   distanceBetweenImages: 0.8
 --- !u!114 &8912675397618481999
 MonoBehaviour:
@@ -213,58 +219,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pistolMunition: 100
   shotgunBullets: 50
---- !u!61 &8912675397618481988
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8912675397618482009}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: a627a2cc3ecd7f54682fcb24a5006662, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.22405216}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.5518957}
-  m_EdgeRadius: 0
---- !u!61 &8912675397618481989
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8912675397618482009}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: a627a2cc3ecd7f54682fcb24a5006662, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.2709469}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.45810622}
-  m_EdgeRadius: 0
 --- !u!50 &8912675397618481990
 Rigidbody2D:
   serializedVersion: 4
@@ -302,6 +256,22 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 128
+--- !u!70 &1520177457
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8912675397618482009}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: a627a2cc3ecd7f54682fcb24a5006662, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.010055095, y: 0.4625342}
+  m_Size: {x: 0.577686, y: 1.9250684}
+  m_Direction: 0
 --- !u!1 &8912675397626861764
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,6 +600,7 @@ MonoBehaviour:
   lifeWeapon: 100
   initialLifeWeapon: 100
   damagePerBullet: 5
+  startTimeBtwAttack: 0.8
   fireSpot: {fileID: 8912675398505773203}
   spot_01: {fileID: 8912675397626861763}
   spot_02: {fileID: 8912675398041049497}
@@ -816,6 +787,7 @@ MonoBehaviour:
   fireSpot: {fileID: 8912675398344176366}
   lifeWeapon: 0
   initialLifeWeapon: 100
+  startTimeBtwAttack: 0.5
   damagePerBullet: 2
   statusLocked: 1
 --- !u!1 &8912675399115867205
