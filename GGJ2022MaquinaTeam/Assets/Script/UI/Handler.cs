@@ -1,32 +1,44 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Handler : MonoBehaviour
 {
-    [SerializeField] GameObject boton_pausa;
     [SerializeField] GameObject menu;
     [SerializeField] GameObject menu_muerte;
     [SerializeField] string[] Frases;
     [SerializeField] Text texto;
     private int rand;
+    private bool isPauseGame;
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("Pause"))
+        {
+            if (isPauseGame)
+            {
+                reanudar();
+            } else
+            {
+                pause();
+            }
+        }
+    }
+
     // Start is called before the first frame update
     //Funciones para el menu de pausa
     public void pause()
     {
         Time.timeScale = 0f;
         menu.SetActive(true);
-        boton_pausa.SetActive(false);
-
+        isPauseGame = true;
     }
     public void reanudar()
     {
 
         Time.timeScale = 1f;
         menu.SetActive(false);
-        boton_pausa.SetActive(true);
+        isPauseGame = false;
     }
     public void quit()
     {
@@ -39,6 +51,7 @@ public class Handler : MonoBehaviour
     }
     public void go_to_main()
     {
+        Time.timeScale = 1f;
         Level_Loader.Load_Level("Main_Menu");
     }
 
@@ -46,7 +59,6 @@ public class Handler : MonoBehaviour
     public void you_die()
     {
         menu_muerte.SetActive(true);
-        boton_pausa.SetActive(false);
         menu.SetActive(false);
     }
 
