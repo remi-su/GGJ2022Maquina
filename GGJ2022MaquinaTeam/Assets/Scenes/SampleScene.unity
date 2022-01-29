@@ -1773,6 +1773,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7607563612864742080, guid: 8cb2a5815b3b47248a842e949b8ea254, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 7607563612864742080, guid: 8cb2a5815b3b47248a842e949b8ea254, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 7607563612864742081, guid: 8cb2a5815b3b47248a842e949b8ea254, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4b7646099021450459bab209df2b7ef0, type: 3}
+    - target: {fileID: 7607563614011537733, guid: 8cb2a5815b3b47248a842e949b8ea254, type: 3}
+      propertyPath: rotationSpeed
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7607563614011537739, guid: 8cb2a5815b3b47248a842e949b8ea254, type: 3}
       propertyPath: manchaSangre
       value: 
