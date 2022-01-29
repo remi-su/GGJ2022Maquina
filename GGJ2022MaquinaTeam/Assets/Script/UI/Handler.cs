@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Handler : MonoBehaviour
 {
     [SerializeField] GameObject boton_pausa;
     [SerializeField] GameObject menu;
     [SerializeField] GameObject menu_muerte;
+    [SerializeField] string[] Frases;
+    [SerializeField] Text texto;
+    private int rand;
     // Start is called before the first frame update
     //Funciones para el menu de pausa
     public void pause()
@@ -44,5 +48,11 @@ public class Handler : MonoBehaviour
         menu_muerte.SetActive(true);
         boton_pausa.SetActive(false);
         menu.SetActive(false);
+    }
+
+    public void setfrase()
+    {
+        rand = Random.Range(0, Frases.Length);
+        texto.text = Frases[rand];
     }
 }
