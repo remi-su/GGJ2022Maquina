@@ -52,6 +52,11 @@ public class WeaponDefaultController : MonoBehaviour
         }
     }
 
+    public float getLifeActualWeapon()
+    {
+        return arsenal.transform.GetChild(weaponActivate).GetComponent<IWeaponController>().getLife();
+    }
+
     private void changeWeapon(int idWeapon)
     {
         for (int i = 0; i < arsenal.transform.childCount; i++)

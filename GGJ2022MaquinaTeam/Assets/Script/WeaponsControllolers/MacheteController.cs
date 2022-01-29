@@ -49,6 +49,11 @@ public class MacheteController : MonoBehaviour, IWeaponController
 
     }
 
+    public float getLife()
+    {
+        return 100;
+    }
+
     public bool getStatusLocked()
     {
         return statusLocked;

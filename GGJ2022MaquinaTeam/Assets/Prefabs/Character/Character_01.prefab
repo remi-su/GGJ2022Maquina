@@ -182,9 +182,12 @@ MonoBehaviour:
   m_CrouchDisableCollider: {fileID: 0}
   life: 100
   barra_de_vida: {fileID: 0}
+  vida_maxima: 100
   mana: 0
+  mana_maxima: 100
   initialTimeRecoveryMana: 0.5
   amountManaToRecover: 1
+  weaponManager: {fileID: 8912675397598368445}
   OnLandEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -205,6 +208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 40
   distanceBetweenImages: 0.8
+  isDashing: 0
 --- !u!114 &8912675397618481999
 MonoBehaviour:
   m_ObjectHideFlags: 0

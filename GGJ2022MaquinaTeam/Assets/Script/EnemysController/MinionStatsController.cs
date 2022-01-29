@@ -6,6 +6,8 @@ public class MinionStatsController : MonoBehaviour
     public float HP;
     public float MAXHP;
     public GameObject gameObjectToDestroy;
+    public GameObject bloodEffect;
+    public GameObject manchaSangre;
 
     private void Start()
     {
@@ -22,6 +24,9 @@ public class MinionStatsController : MonoBehaviour
 
     void die()
     {
+        Instantiate(bloodEffect, transform.position, Quaternion.identity);
+        Instantiate(manchaSangre, transform.position, gameObject.transform.rotation);
+        FindObjectOfType<ShakeCamara>().CamShake();
         gameObjectToDestroy.SetActive(false);
     }
 

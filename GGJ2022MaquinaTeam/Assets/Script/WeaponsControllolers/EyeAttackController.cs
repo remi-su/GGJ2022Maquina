@@ -61,6 +61,11 @@ public class EyeAttackController : MonoBehaviour, IWeaponController
 
     }
 
+    public float getLife()
+    {
+        return 0;
+    }
+
     public bool getStatusLocked()
     {
         return statusLocked;

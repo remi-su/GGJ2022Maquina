@@ -73,6 +73,12 @@ public class SummonMinion : MonoBehaviour, IWeaponController
 
     }
 
+
+    public float getLife()
+    {
+        return 100;
+    }
+
     public bool getStatusLocked()
     {
         return statusLocked;

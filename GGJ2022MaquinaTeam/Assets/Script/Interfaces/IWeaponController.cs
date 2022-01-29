@@ -14,5 +14,8 @@ namespace Assets.Script.Interfaces
         public void TakeNewInstance();
 
         public void TakeDamage(float damage);
+
+        public float getLife();
+
     }
 }

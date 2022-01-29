@@ -909,6 +909,8 @@ MonoBehaviour:
   HP: 100
   MAXHP: 100
   gameObjectToDestroy: {fileID: 7614709985078960614}
+  bloodEffect: {fileID: 2766433027070441863, guid: 6df3dfb097a4fa849b81a5b618d28ae0, type: 3}
+  manchaSangre: {fileID: 2385328479880153275, guid: 337e81e048dd65e40895841a46897c75, type: 3}
 --- !u!1 &7614709985950783476
 GameObject:
   m_ObjectHideFlags: 0

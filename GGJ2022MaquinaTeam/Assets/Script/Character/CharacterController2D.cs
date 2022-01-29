@@ -20,16 +20,18 @@ public class CharacterController2D : MonoBehaviour
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
 	private bool secondJump = false;
-	[SerializeField] private float life = 100;
+	[SerializeField] public float life = 100;
 	[SerializeField] private Image barra_de_vida;
-	private float vida_maxima = 100;
-	[SerializeField] float mana = 100;
-	private float mana_maxima = 100;
+	public float vida_maxima = 100;
+	[SerializeField] public float mana = 100;
+	public float mana_maxima = 100;
 	[SerializeField]
 	private float initialTimeRecoveryMana;
 	private float timeRecoveryMana;
 	[SerializeField]
 	private float amountManaToRecover;
+
+	public GameObject weaponManager;
 
 	[Header("Events")]
 	[Space]

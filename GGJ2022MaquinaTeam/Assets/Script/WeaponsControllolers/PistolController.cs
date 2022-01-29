@@ -78,6 +78,11 @@ public class PistolController : MonoBehaviour, IWeaponController
         }
     }
 
+    public float getLife()
+    {
+        return lifeWeapon;
+    }
+
     public bool getStatusLocked()
     {
         return statusLocked;
