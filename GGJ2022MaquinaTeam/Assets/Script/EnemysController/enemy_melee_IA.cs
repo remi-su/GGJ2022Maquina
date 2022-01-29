@@ -10,6 +10,7 @@ public class enemy_melee_IA : MonoBehaviour
     public int direccion;
     public float speed_walk;
     public float speed_run;
+    public string nombre_jugador;
     public GameObject target;
     public bool atacando;
 
@@ -23,7 +24,7 @@ public class enemy_melee_IA : MonoBehaviour
     void Start()
     {
         ani = GetComponent<Animator>();
-        target = GameObject.Find("Player");
+        target = GameObject.Find(nombre_jugador);
     }
 
     // Update is called once per frame
@@ -34,9 +35,8 @@ public class enemy_melee_IA : MonoBehaviour
 
     public void comportamientos() {
 
-        if (Mathf.Abs(transform.position.x - target.transform.position.x) > rango_vision & !atacando)
+        if (Mathf.Abs(transform.position.x - target.transform.position.x) > rango_vision && !atacando)
         {
-
 
             ani.SetBool("run", false);
             cronometro += 1 * Time.deltaTime;
@@ -75,7 +75,7 @@ public class enemy_melee_IA : MonoBehaviour
                     break;
             }
         }
-        else if (Mathf.Abs(transform.position.x - target.transform.position.x) > rang_ataque & !atacando)
+        else if (Mathf.Abs(transform.position.x - target.transform.position.x) > rang_ataque && !atacando)
         {
             if (transform.position.x < target.transform.position.x)
             {
@@ -105,7 +105,7 @@ public class enemy_melee_IA : MonoBehaviour
             }
             else
             {
-                transform.rotation = Quaternion.Euler(0, 0, 0);
+                transform.rotation = Quaternion.Euler(0, 180, 0);
             }
             ani.SetBool("walk", false);
             ani.SetBool("run", false);
