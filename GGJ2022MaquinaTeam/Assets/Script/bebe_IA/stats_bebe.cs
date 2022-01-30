@@ -5,6 +5,7 @@ using UnityEngine;
 public class stats_bebe : MonoBehaviour
 {
     public int vida_bebe;
+    public GameObject EffectToDie;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,8 @@ public class stats_bebe : MonoBehaviour
     {
         if (vida_bebe <= 0)
         {
+            Instantiate(EffectToDie, transform.position, Quaternion.identity);
+            FindObjectOfType<ShakeCamara>().CamShake();
             destroy();
 
         }

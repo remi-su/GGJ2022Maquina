@@ -55,7 +55,7 @@ public class PistolController : MonoBehaviour, IWeaponController
 
     public void CureWeapon(float amontHeal)
     {
-        if (!statusLocked)
+        if (statusLocked)
         {
             if (initialLifeWeapon >= (lifeWeapon + amontHeal))
             {

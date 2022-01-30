@@ -267,7 +267,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6809191982430698714}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.3800066, y: 4.5406184, z: 61.884167}
+  m_LocalPosition: {x: -1.3800066, y: 4.5406184, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3191356833872787157}
@@ -1012,7 +1012,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18bc07e3f8bb8da478aad6cdaa6d8a5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 10
+  HP: 500
   gameObjectToDestroy: {fileID: 2000792444256086091}
   bloodEffect: {fileID: 2766433027070441863, guid: 6df3dfb097a4fa849b81a5b618d28ae0, type: 3}
   manchaSangre: {fileID: 7287342372549383895, guid: 6a7eaffde066e1e4b877b48ef00f9e01, type: 3}

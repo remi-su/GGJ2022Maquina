@@ -20,7 +20,11 @@ public class EnemyStatsController : MonoBehaviour
     void die()
     {
         Instantiate(bloodEffect, transform.position, Quaternion.identity);
-        Instantiate(manchaSangre, transform.position, gameObject.transform.rotation);
+        if (manchaSangre != null)
+        {
+            Instantiate(manchaSangre, transform.position, gameObject.transform.rotation);
+        }
+        
         FindObjectOfType<ShakeCamara>().CamShake();
         Destroy(gameObjectToDestroy.gameObject);
     }

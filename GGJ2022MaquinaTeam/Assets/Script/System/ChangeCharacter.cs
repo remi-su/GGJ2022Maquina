@@ -67,7 +67,7 @@ public class ChangeCharacter : MonoBehaviour
                 player_01.transform.position = positionPlayer;
                 isPlayerOneActive = true;
             }
-            AstarPathEditor.MenuScan();
+            //AstarPathEditor.MenuScan();
             FindObjectOfType<AudioManager>().ChangeWorld(isPlayerOneActive, false);
             FindObjectOfType<RipplePostProcessor>().RippleEffect(positionPlayer);
             //ChangeTargetEnemys(tagNextPlayer);
