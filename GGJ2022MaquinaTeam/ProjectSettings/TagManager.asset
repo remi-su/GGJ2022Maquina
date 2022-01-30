@@ -13,6 +13,8 @@ TagManager:
   - CharacterGFX
   - bala_e
   - trampa
+  - Pickeable
+  - Boss
   layers:
   - Default
   - TransparentFX
@@ -28,9 +30,9 @@ TagManager:
   - Bullet
   - Minion
   - Ally
-  - 
-  - 
-  - 
+  - Item
+  - Laser
+  - Boss
   - 
   - 
   - 
@@ -50,9 +52,24 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 3058965175
+    locked: 0
   - name: Character
     uniqueID: 3163988051
     locked: 0
+  - name: FlyEnemy
+    uniqueID: 1751143989
+    locked: 0
   - name: Bullet
     uniqueID: 3165828063
+    locked: 0
+  - name: Items
+    uniqueID: 2160052841
+    locked: 0
+  - name: FrontBackground
+    uniqueID: 1171488521
+    locked: 0
+  - name: GUI
+    uniqueID: 2838571871
     locked: 0

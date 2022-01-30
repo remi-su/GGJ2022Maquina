@@ -35,6 +35,11 @@ public class enemy_melee_IA : MonoBehaviour
 
     public void comportamientos() {
 
+        if (target == null)
+        {
+            return;
+        }
+
         if (Mathf.Abs(transform.position.x - target.transform.position.x) > rango_vision && !atacando)
         {
 

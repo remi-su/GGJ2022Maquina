@@ -36,6 +36,15 @@ public class CameraFollow : MonoBehaviour
     private void DeterminateTarget()
     {
         string target = FindObjectOfType<ChangeCharacter>().tagNextPlayer;
-        targetToFollow = GameObject.FindGameObjectWithTag(target).transform;
+        GameObject playerTarget = GameObject.FindGameObjectWithTag(target);
+
+        if (playerTarget != null)
+        {
+            targetToFollow = playerTarget.transform;
+        } else
+        {
+            target = null;
+        }
+        
     }
 }

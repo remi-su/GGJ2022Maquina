@@ -22,7 +22,7 @@ public class follow : MonoBehaviour
     {
         routeToGo = 0;
         tParam = 0f;
-        speedModifier = 0.1f;
+        speedModifier = 0.3f;
         coroutineAllowed = true;
     }
 

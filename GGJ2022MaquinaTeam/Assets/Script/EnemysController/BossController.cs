@@ -7,7 +7,18 @@ public class BossController : MonoBehaviour
 
     public Transform[] spots;
     public Transform body;
+    public Transform spotLaser;
     public float speed;
+
+    //Ataque de distorcion
+    public LayerMask whatIsEnemies;
+    public float attackRange;
+    public float damageByDistorsion;
+    public GameObject flyEnemy;
+
+    //Ataque de plumas parametros
+    public Transform[] spotFeathers;
+    public GameObject featherBullet;
 
     bool isRotatingMovement;
     bool isFollowPlayer;
@@ -170,8 +181,17 @@ public class BossController : MonoBehaviour
 
     void getPlayerPosition()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        playerPosition = player.transform.position;
+        string tagPlayer = FindObjectOfType<ChangeCharacter>().tagNextPlayer;
+        GameObject player = GameObject.FindGameObjectWithTag(tagPlayer);
+
+        if (player != null)
+        {
+            playerPosition = player.transform.position;
+        } else
+        {
+            playerPosition = transform.position;
+        }
+        
     }
 
     void SelectAttackBySpot()
@@ -180,21 +200,21 @@ public class BossController : MonoBehaviour
         {
             case 1:
             case 2:
-                Debug.Log("IsAttacking Player with attack direct");
                 getPlayerPosition();
                 isFollowPlayer = true;
                 break;
             case 3:
             case 4:
                 Debug.Log("Attack with Feathers");
+                FeatherAttack();
                 canChangeSpot = true;
                 break;
             case 5:
                 Debug.Log("Spawn Enemy");
+                TurbulenciaAttack();
                 canChangeSpot = true;
                 break;
             case 6:
-                Debug.Log("Attack with a giant laser");
                 GiantLaserAttack();
                 break;
         }
@@ -212,4 +232,34 @@ public class BossController : MonoBehaviour
             timeAttackingTotal = 2.5f;
         }
     }
+
+    void TurbulenciaAttack()
+    {
+        FindObjectOfType<RipplePostProcessor>().RippleEffect(spotLaser.position);
+        Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(spotLaser.position, attackRange, whatIsEnemies);
+        for (int i = 0; i < enemiesToDamage.Length; i++)
+        {
+            if (enemiesToDamage[i].GetComponent<EnemyStatsController>())
+            {
+                enemiesToDamage[i].GetComponent<EnemyStatsController>().makeDamage(damageByDistorsion);
+            }
+
+            if (enemiesToDamage[i].GetComponent<CharacterController2D>())
+            {
+                enemiesToDamage[i].GetComponent<CharacterController2D>().takedamage(damageByDistorsion);
+            }
+        }
+
+        Instantiate(flyEnemy,spotLaser.position, Quaternion.identity);
+    }
+
+    void FeatherAttack()
+    {
+        for (int i = 0; i < spotFeathers.Length; i++)
+        {
+            Instantiate(featherBullet, spotFeathers[i].position, spotFeathers[i].rotation);
+        }
+    }
+
+
 }

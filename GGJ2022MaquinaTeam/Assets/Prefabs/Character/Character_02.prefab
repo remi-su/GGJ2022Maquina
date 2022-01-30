@@ -254,11 +254,14 @@ MonoBehaviour:
   m_GroundCheck: {fileID: 6117807637288386496}
   m_CeilingCheck: {fileID: 6117807636107333809}
   m_CrouchDisableCollider: {fileID: 0}
-  life: 100
+  life: 70
   barra_de_vida: {fileID: 0}
+  vida_maxima: 100
   mana: 100
+  mana_maxima: 100
   initialTimeRecoveryMana: 0.5
   amountManaToRecover: 1
+  weaponManager: {fileID: 0}
   OnLandEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -279,6 +282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 45
   distanceBetweenImages: 0.8
+  isDashing: 0
 --- !u!50 &6117807635845473651
 Rigidbody2D:
   serializedVersion: 4
@@ -315,7 +319,7 @@ MonoBehaviour:
   spotToInteract: {fileID: 6117807637516142153}
   layerMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 16512
 --- !u!114 &6117807635845473650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,8 +419,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1130979245
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e8f77d3e8bf62bf418879931dcb1a0f2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -658,9 +662,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -1130979245
+  m_SortingLayer: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: eb493c860d60a6949bbfea01f3a39891, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -888,7 +892,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6117807637516142153}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.76, y: 0, z: 0}
+  m_LocalPosition: {x: 0.76, y: 0.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6117807635845473658}

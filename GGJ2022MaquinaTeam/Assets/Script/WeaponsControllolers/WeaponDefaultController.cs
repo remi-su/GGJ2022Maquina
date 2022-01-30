@@ -52,6 +52,11 @@ public class WeaponDefaultController : MonoBehaviour
         }
     }
 
+    public void HealLifeActualWeapon(float amount)
+    {
+        arsenal.transform.GetChild(weaponActivate).GetComponent<IWeaponController>().CureWeapon(amount);
+    }
+
     public float getLifeActualWeapon()
     {
         return arsenal.transform.GetChild(weaponActivate).GetComponent<IWeaponController>().getLife();

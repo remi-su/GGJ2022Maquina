@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class BigLaserController : MonoBehaviour
@@ -11,6 +10,7 @@ public class BigLaserController : MonoBehaviour
 
     public Vector3 initialFinalLaserDestiny;
     private Vector3 initialFinalPointLaserDestiny;
+    public LayerMask layerMask;
 
     [SerializeField] private float defDistanceRay = 100;
     private LineRenderer m_lineRenderer;
@@ -27,7 +27,6 @@ public class BigLaserController : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("NonReorderableAttribute entra y no se porque");
     }
 
     // Update is called once per frame
@@ -40,9 +39,14 @@ public class BigLaserController : MonoBehaviour
     void ShootLaser()
     {
         Vector3 direction = (laserFirePoint.position - finalLaserDestiny.position).normalized;
-        if (Physics2D.Raycast(transform.position, -direction))
+        if (Physics2D.Raycast(transform.position, -direction, defDistanceRay, layerMask))
         {
-            RaycastHit2D _hit = Physics2D.Raycast(laserFirePoint.position, -direction);
+            RaycastHit2D _hit = Physics2D.Raycast(laserFirePoint.position, -direction, defDistanceRay, layerMask);
+
+            if (_hit.collider.gameObject.layer == 3)
+            {
+                _hit.collider.gameObject.GetComponent<CharacterController2D>().takedamage(1);
+            }
             Drawn2DRay(laserFirePoint.position, _hit.point);
         } else
         {

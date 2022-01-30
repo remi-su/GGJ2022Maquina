@@ -67,7 +67,7 @@ public class InteractionController : MonoBehaviour
                     ActiveConversation(_hit.collider.gameObject);
                     break;
                 case "Pickeable":
-                    //ActiveItemIteraction(1, hitInfo.collider.gameObject);
+                    HealLife(_hit.collider.gameObject);
                     break;
                 case "DoorUnlocked":
                     //ActiveItemIteraction(2, hitInfo.collider.gameObject);
@@ -105,6 +105,26 @@ public class InteractionController : MonoBehaviour
                 dialogueToActivate = gameManager.GetComponent<DialogManager>().FindDialogueById(idDialogue);
                 gameManager.GetComponent<DialogSystem>().EstablecerDialogo(dialogueToActivate);
                 gameManager.GetComponent<DialogSystem>().StartDialogue();
+            }
+        }
+    }
+
+    private void HealLife(GameObject item)
+    {
+        if (Input.GetButtonDown("Interact"))
+        {
+            if (item.GetComponent<HealLifeController>())
+            {
+                float amount = item.GetComponent<HealLifeController>().getHeal();
+                GetComponent<CharacterController2D>().HealLife(amount);
+                Destroy(item);
+            }
+
+            if (item.GetComponent<HealLifeWeapon>())
+            {
+                float amount = item.GetComponent<HealLifeWeapon>().getHeal();
+                GetComponent<CharacterController2D>().weaponManager.GetComponent<WeaponDefaultController>().HealLifeActualWeapon(amount);
+                Destroy(item);
             }
         }
     }

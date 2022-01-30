@@ -22,7 +22,7 @@ public class followx2 : MonoBehaviour
     {
         routeToGo = 0;
         tParam = 0f;
-        speedModifier = 0.105f;
+        speedModifier = 0.305f;
         coroutineAllowed = true;
     }
 

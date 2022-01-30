@@ -58,9 +58,17 @@ public class ShotgunController : MonoBehaviour, IWeaponController
 
     public void CureWeapon(float amontHeal)
     {
-        if (!statusLocked)
+        if (statusLocked)
         {
-            lifeWeapon += amontHeal;
+            if (initialLifeWeapon >= (lifeWeapon + amontHeal))
+            {
+                lifeWeapon += amontHeal;
+            }
+            else
+            {
+                lifeWeapon = initialLifeWeapon;
+            }
+
         }
     }
 

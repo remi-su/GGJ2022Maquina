@@ -9,7 +9,10 @@ public class hit_enemigo : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("Daño");
+            if (collision.gameObject.GetComponent<CharacterController2D>())
+            {
+                collision.gameObject.GetComponent<CharacterController2D>().takedamage(20);
+            }
         }
     }
 }

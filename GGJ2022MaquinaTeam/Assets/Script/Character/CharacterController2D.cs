@@ -219,6 +219,7 @@ public class CharacterController2D : MonoBehaviour
 
 	private void die()
 	{
+		FindObjectOfType<Handler>().you_die();
 		Destroy(gameObject);
 	}
 
@@ -233,4 +234,15 @@ public class CharacterController2D : MonoBehaviour
 			takedamage(10);
 		}
 	}
+
+	public void HealLife(float amount)
+    {
+		if (vida_maxima >= (life + amount))
+        {
+			life += amount;
+        } else
+        {
+			life = vida_maxima;
+        }
+    }
 }

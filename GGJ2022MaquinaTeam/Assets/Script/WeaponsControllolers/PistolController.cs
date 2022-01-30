@@ -57,7 +57,14 @@ public class PistolController : MonoBehaviour, IWeaponController
     {
         if (!statusLocked)
         {
-            lifeWeapon += amontHeal;
+            if (initialLifeWeapon >= (lifeWeapon + amontHeal))
+            {
+                lifeWeapon += amontHeal;
+            } else
+            {
+                lifeWeapon = initialLifeWeapon;
+            }
+            
         }
     }
 
