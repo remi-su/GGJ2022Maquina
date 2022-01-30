@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tentacle : MonoBehaviour
+public class Bebe_IA : MonoBehaviour
 {
     public int lenght;
     public LineRenderer line;
@@ -20,6 +20,7 @@ public class Tentacle : MonoBehaviour
     private GameObject bebe;
 
     public Transform wigglePoint;
+    public Transform tailend;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +35,7 @@ public class Tentacle : MonoBehaviour
     void Update()
     {
 
-        wigglePoint.localRotation = Quaternion.Euler(0,0,Mathf.Sin(Time.time * wiggleSpeed) * wiggleMagnitude);
+        wigglePoint.localRotation = Quaternion.Euler(0, 0, Mathf.Sin(Time.time * wiggleSpeed) * wiggleMagnitude);
 
         segments[0] = targetDir.position;
 
@@ -43,5 +44,7 @@ public class Tentacle : MonoBehaviour
             segments[i] = Vector3.SmoothDamp(segments[i], segments[i - 1] + targetDir.right * targetDis, ref segmentsV[i], smoothMovement + i / trailSpeed);
         }
         line.SetPositions(segments);
+
+        tailend.position = segments[segments.Length - 1];
     }
 }
